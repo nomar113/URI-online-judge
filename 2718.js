@@ -13,21 +13,22 @@ for (var i = 0; i < n; i++) {
     bits.push(x);
     bits.reverse();
 
-
+    var max = 1;
     if (bits.includes(1)) {
         var contador = 1;
-        for (var j = 0; j < n; j++) {
+        for (var j = 0; j < bits.length; j++) {
             if (bits[j] == 1) {
                 if (bits[j] == bits[j + 1]) {
                     contador++;
-                } else {
-                    contador = 1;
+                    max = Math.max(max, contador);
                 }
+            } else {
+                contador = 1;
             }
         }
     } else {
-        contador = 0;
+        max = 0;
     }
 
-    console.log(contador);
+    console.log(max);
 }
